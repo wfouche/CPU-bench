@@ -1,0 +1,126 @@
+= CPU-bench
+
+== Overview
+
+CPU-bench is a tool that measures the degree of parallelism (DOP) of a physical computer or virtual machine (VM). The DOP is the number of instructions that can be executed in parallel. A server might report that it has `N` logical CPUs, but depending on whether Hyper-Threading is enabled or not, and how CPU management is configured in the virtualization software (if used), the server might not be able to executed `N` instructions at the same time. CPU-bench reports:
+
+* The number of logical CPUs assigned to a server.
+
+* The DOP of that server.
+
+If Hyper-threading is enabled, the DOP score is a lot less than the number of logical CPUs.
+
+== Download
+
+CPU-bench is available from:
+
+* https://github.com/wfouche/Performance-Tools/archive/master.zip 
+
+Download the master.zip file, and unzip it on AIX, Linux, or Windows.
+
+== Running
+
+=== AIX
+
+----
+$ cd aix
+$ ./run_aix.sh
+----
+
+=== Linux
+
+----
+$ cd linux
+$ ./run-linux-1.sh
+----
+
+=== Windows
+
+----
+C:\Git\Performance-Tools\cpu-bench> cd windows
+C:\Git\Performance-Tools\cpu-bench> run-windows-1.sh
+----
+
+== Sample Report
+
+The report below was generated on a Dell E6530 with 2 cores with hyper-threading enabled:
+
+----
+$ ./run-linux-1.sh
+
+CPU-bench:
+
+    1.1.6 (2019-03-11 16:39:03.861382)
+
+    C_extension: enabled
+
+Hostname:
+
+    wfouche-Latitude-E6530
+
+Operating System Environment:
+
+    Linux-4.18.0-16-generic-x86_64-with-LinuxMint-19.1-tessa
+
+Python Version:
+
+    2.7.15rc1 (default, Nov 12 2018, 14:31:15)  [GCC 7.3.0]
+
+Runtime Arguments:
+
+    /usr/bin/python: ['../src/cpu-bench.py', '--auto']
+
+Server Hardware:
+
+    Number of LCPUs (logical CPUs, hardware threads): 4
+
+Performance of 1 LCPU:
+
+    LCPU 0: It took 1.224 seconds to reach 4,294,967,296 at SPR(3508.5)
+    LCPU 0: It took 29.557 seconds to reach 105,255,305,389 at SPR(3561.1)
+    LCPU 0: It took 29.922 seconds to reach 106,833,976,819 at SPR(3570.4)
+    LCPU 0: It took 29.980 seconds to reach 107,110,976,515 at SPR(3572.7)
+
+Performance of 4 LCPUs:
+
+    LCPU 0: It took 61.603 seconds to reach 107,110,976,515 at SPR(1738.7)
+    LCPU 1: It took 63.326 seconds to reach 107,110,976,515 at SPR(1691.4)
+    LCPU 2: It took 63.323 seconds to reach 107,110,976,515 at SPR(1691.5)
+    LCPU 3: It took 61.516 seconds to reach 107,110,976,515 at SPR(1741.2)
+
+Benchmark Score:
+
+    NUM_LCPUs : 4
+    DOP       : 1.9
+    SPR       : 6862.9
+----
+
+== Platform Support
+
+CPU-bench can be run using either Python 2.7 or Python 3.x.
+
+=== AIX 
+
+Use Python 2.7.10-1 available from:
+
+* http://www.bullfreeware.com/affichage.php?id=2316
+
+== Linux
+
+=== Redhat
+
+Use Python 2.7.10-1 available from:
+
+* http://tecadmin.net/install-python-2-7-on-centos-rhel/
+
+=== Ubuntu
+
+Use Python 2.7.10-1 available from:
+
+* http://tecadmin.net/install-python-2-7-on-ubuntu-and-linuxmint/
+
+== Windows
+
+Use Python 2.7.10-1 (64bit) available from:
+
+* https://www.python.org/ftp/python/2.7.10/python-2.7.10.amd64.msi
