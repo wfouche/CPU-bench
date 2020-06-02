@@ -14,7 +14,7 @@ If Hyper-threading is enabled, the DOP score is a lot less than the number of lo
 
 CPU-bench is available from:
 
-* https://github.com/wfouche/Performance-Tools/archive/master.zip 
+* https://github.com/wfouche/CPU-bench/archive/master.zip
 
 Download the master.zip file, and unzip it on AIX, Linux, or Windows.
 
