@@ -4,14 +4,13 @@
 
 == Introduction
 
-*CPU-bench* measures the Degree of Parallism (https://en.wikipedia.org/wiki/Degree_of_parallelism[DOP]) of a computer system ranging from laptop / desktop size machines to large-scale non-uniform memory access (NUMA) server architectures. The notion of executing tasks simultaniously are realized in computer systems in three distinct ways:
+*CPU-bench* measures the Degree of Parallelism (https://en.wikipedia.org/wiki/Degree_of_parallelism[DOP]) of a computer system ranging from laptop / desktop size machines to large-scale non-uniform memory access (NUMA) server architectures. The notion of executing tasks simultaniously are realized in computer systems in three distinct ways:
 
-* Parallellism: 
+* Parallelism:
 
 * Concurrency
 
-* Vectororization
-
+* Vectorization
 
 == Installation
 
