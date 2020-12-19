@@ -37,14 +37,20 @@ double compute_N(int waiting) {
 
   gettimeofday( & start, NULL); {
     while (n) {
+      // https://godbolt.org/
       n -= 1;
-      //
+
       // Intel x64 (gcc -O -S) - machine code.
       //
       // .L9:
       //       subq    $1, %rbx
       //       jne     .L9
       //
+
+      // ARM 64bit (gcc -O -S) - machine code.
+      // .L5:
+      //       subs    r4, r4, #1
+      //       bne     .L5
     }
   }
   gettimeofday( & end, NULL);
