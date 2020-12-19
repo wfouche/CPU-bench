@@ -52,7 +52,7 @@ HOSTNAME = socket.gethostname()
 if platform.system() == "Windows":
     exe_compute_N = "./compute_N.exe"
 else:
-    exe_compute_N = "./compute_N"
+    exe_compute_N = "./compute_N.%s"%(platform.processor())
 
 #---------------------------------------------------------------------------------------
 	
@@ -448,7 +448,7 @@ if __name__ == "__main__":
             print("")
             print("Server Hardware:")
             print("")            
-            print("    Number of LCPUs (logical CPUs, hardware threads): %d"%(num_cpus))
+            print("    Number of LCPUs (logical CPUs, hardware threads): %d (%s)"%(num_cpus,platform.processor()))
 
         if ("--si" in d.keys()) and ("--sc" in d.keys()):
             si = to_seconds(d["--si"])
